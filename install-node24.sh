@@ -15,7 +15,6 @@ npm -v # Should print "11.12.1".
 
 # Download and install pnpm:
 corepack enable pnpm
-corepack prepare pnpm --activate
 
 # Verify pnpm version:
 pnpm -v
