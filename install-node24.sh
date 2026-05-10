@@ -14,9 +14,8 @@ node -v # Should print "v24.15.0".
 npm -v # Should print "11.12.1".
 
 # Download and install pnpm:
-corepack enable
-corepack prepare yarn@stable --activate
+corepack enable pnpm
+corepack prepare pnpm --activate
 
 # Verify pnpm version:
 pnpm -v
-yarn -v
