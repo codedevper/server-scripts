@@ -8,8 +8,8 @@ sudo apt update
 echo "==> Installing required packages (curl, git, software-properties-common)..."
 sudo apt install -y gnupg gosu curl ca-certificates zip unzip git supervisor sqlite3 libcap2-bin libpng-dev python3 dnsutils librsvg2-bin fswatch ffmpeg nano
 
-echo "==> Adding ondrej/php repository..."
-sudo LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php -y
+#echo "==> Adding ondrej/php repository..."
+#sudo LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php -y
 
 echo "==> Updating package list again..."
 sudo apt update
