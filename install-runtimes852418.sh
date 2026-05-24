@@ -2,20 +2,35 @@
 
 set -e
 
-echo "==> Updating package list..."
+echo "======================================"
+echo " Update Ubuntu"
+echo "======================================"
+
+sudo apt-get update && sudo apt-get upgrade -y
+
+echo "======================================"
+echo " Adjusted package wget and more..."
+echo "======================================"
+
+sudo apt install -y wget gnupg gosu curl ca-certificates zip unzip git supervisor sqlite3 libcap2-bin libpng-dev python3 dnsutils librsvg2-bin fswatch ffmpeg nano
+
+echo "======================================"
+echo " Install PHP Repository"
+echo "======================================"
+
+# Add the ondrej/php repository.
+sudo apt update
+sudo apt install -y software-properties-common
+sudo LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php -y
 sudo apt update
 
-echo "==> Installing required packages (curl, git, software-properties-common)..."
-sudo apt install -y gnupg gosu curl ca-certificates zip unzip git supervisor sqlite3 libcap2-bin libpng-dev python3 dnsutils librsvg2-bin fswatch ffmpeg nano
+# Install PHP.
+#sudo apt install -y php8.5
 
-#echo "==> Adding ondrej/php repository..."
-#sudo LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php -y
+echo "======================================"
+echo " Install PHP 8.5"
+echo "======================================"
 
-echo "==> Updating package list again..."
-sudo apt update
-
-echo "==> Installing PHP 8.5..."
-sudo apt install -y php8.5 php8.5-fpm
 sudo apt-get install -y \
     libgd3 \
     php8.5-cli \
@@ -44,10 +59,10 @@ sudo apt-get install -y \
     php8.5-imagick \
     php8.5-xdebug
 
-echo "==> Checking PHP version..."
-php -v
+echo "======================================"
+echo " Install Composer"
+echo "======================================"
 
-echo "==> Installing Composer ..."
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 php -r "if (hash_file('sha384', 'composer-setup.php') === 'c8b085408188070d5f52bcfe4ecfbee5f727afa458b2573b8eaaf77b3419b0bf2768dc67c86944da1544f06fa544fd47') { echo 'Installer verified'.PHP_EOL; } else { echo 'Installer corrupt'.PHP_EOL; unlink('composer-setup.php'); exit(1); }"
 php composer-setup.php
@@ -55,29 +70,36 @@ php -r "unlink('composer-setup.php');"
 
 sudo mv composer.phar /usr/local/bin/composer
 
-echo "==> Checking Composer version..."
-composer -V
+composer --version
 
-echo "==> Installing NVM ..."
+echo "======================================"
+echo " Install NVM"
+echo "======================================"
+
 # Download and install nvm:
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
 
 # in lieu of restarting the shell
 \. "$HOME/.nvm/nvm.sh"
 
-echo "==> Installing Node.js ..."
 # Download and install Node.js:
 nvm install 24
 
-echo "==> Checking Node.js version..."
 # Verify the Node.js version:
 node -v # Should print "v24.15.0".
 
 # Verify npm version:
 npm -v # Should print "11.12.1".
 
-echo "==> Installing Docker ..."
+echo "======================================"
+echo " Remove Old Docker"
+echo "======================================"
+
 sudo apt remove $(dpkg --get-selections docker.io docker-compose docker-compose-v2 docker-doc podman-docker containerd runc | cut -f1)
+
+echo "======================================"
+echo " Install Docker"
+echo "======================================"
 
 # Add Docker's official GPG key:
 sudo apt update
@@ -99,10 +121,16 @@ EOF
 sudo apt update
 sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 sudo usermod -aG docker $USER
-sudo systemctl start docker
 
-sudo apt-get install -y mysql-client
-sudo apt-get install -y mariadb-client
-sudo apt-get install -y postgresql-client-18
+docker --version
+docker compose version
 
-echo "✅ Runtimes 852418 installation completed."
+echo "======================================"
+echo " Installation Complete"
+echo "======================================"
+echo ""
+echo "Please logout/login or run:"
+echo ""
+echo "newgrp docker"
+echo ""
+echo "to use Docker without sudo."
