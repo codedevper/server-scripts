@@ -8,7 +8,11 @@ echo "======================================"
 
 sudo apt-get update && sudo apt-get upgrade -y
 
-sudo apt install -y gnupg gosu curl ca-certificates zip unzip git supervisor sqlite3 libcap2-bin libpng-dev python3 dnsutils librsvg2-bin fswatch ffmpeg nano
+echo "======================================"
+echo " Adjusted package wget and more..."
+echo "======================================"
+
+sudo apt install -y wget gnupg gosu curl ca-certificates zip unzip git supervisor sqlite3 libcap2-bin libpng-dev python3 dnsutils librsvg2-bin fswatch ffmpeg nano
 
 echo "======================================"
 echo " Install PHP Repository"
