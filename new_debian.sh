@@ -37,7 +37,7 @@ sudo apt update
 sudo apt install -y php8.5
 
 echo "======================================"
-echo " Install PHP ${PHP_VERSION}"
+echo " Install PHP 8.5"
 echo "======================================"
 
 sudo apt-get install -y \
