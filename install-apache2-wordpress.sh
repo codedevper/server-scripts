@@ -27,14 +27,14 @@ sudo chmod -R 755 /var/www/html/wordpress
 sudo tee /etc/apache2/sites-available/wordpress.conf > /dev/null <<'EOF'
 <VirtualHost *:80>
     ServerName localhost
-    DocumentRoot /srv/www/wordpress
-    <Directory /srv/www/wordpress>
+    DocumentRoot /var/www/wordpress
+    <Directory /var/www/wordpress>
         Options FollowSymLinks
         AllowOverride Limit Options FileInfo
         DirectoryIndex index.php
         Require all granted
     </Directory>
-    <Directory /srv/www/wordpress/wp-content>
+    <Directory /var/www/wordpress/wp-content>
         Options FollowSymLinks
         Require all granted
     </Directory>
