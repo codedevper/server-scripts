@@ -3,5 +3,3 @@ sudo apt update && sudo apt upgrade -y
 sudo apt-get install git wget ca-certificates openssh-server -y
 
 echo "$USER ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/sudo-nopasswd
-
-sudo rm /etc/sudoers.d/sudo-nopasswd
