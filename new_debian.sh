@@ -34,7 +34,7 @@ EOF
 sudo apt update
 
 # Install PHP.
-sudo apt install -y php8.5
+#sudo apt install -y php8.5
 
 echo "======================================"
 echo " Install PHP 8.5"
