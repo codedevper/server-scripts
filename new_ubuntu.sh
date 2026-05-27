@@ -25,7 +25,7 @@ sudo LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php -y
 sudo apt update
 
 # Install PHP.
-sudo apt install -y php8.5
+#sudo apt install -y php8.5
 
 echo "======================================"
 echo " Install PHP 8.5"
