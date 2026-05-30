@@ -4,7 +4,7 @@
 set -e
 
 echo "======================================"
-echo " Update Ubuntu"
+echo " Update package"
 echo "======================================"
 
 sudo apt-get update && sudo apt-get upgrade -y
