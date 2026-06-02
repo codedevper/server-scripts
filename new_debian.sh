@@ -72,6 +72,7 @@ sudo apt update
 sudo apt install sqlite3 -y
 sudo apt install mariadb-server mariadb-client -y
 sudo apt install redis-server -y
+sudo apt install sendmail -y
 sudo apt-get install -y \
     libgd3 \
     php8.5-cli \
