@@ -25,8 +25,18 @@ EOF
 
 sudo apt update
 
-# Install PHP.
+echo "======================================"
+echo " Install PHP 8.5"
+echo "======================================"
+
 sudo apt install -y php8.5
+
+php -v
+
+echo "======================================"
+echo " Install multiple PHP 8.5 extensions"
+echo "======================================"
+
 sudo apt-get install -y \
     libgd3 \
     php8.5-cli \
@@ -54,8 +64,6 @@ sudo apt-get install -y \
     php8.5-pcov \
     php8.5-imagick \
     php8.5-xdebug
-    
-php -v
 
 echo "======================================"
 echo " Install Composer"
