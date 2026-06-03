@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -e
-
 echo "======================================"
 echo " Update package"
 echo "======================================"
@@ -28,7 +26,7 @@ EOF
 sudo apt update
 
 # Install PHP.
-sudo apt install -y php8.5
+#sudo apt install -y php8.4
 
 php -v
 
@@ -75,31 +73,31 @@ sudo apt install redis-server -y
 sudo apt install sendmail -y
 sudo apt-get install -y \
     libgd3 \
-    php8.5-cli \
-    php8.5-fpm \
-    php8.5-pgsql \
-    php8.5-sqlite3 \
-    php8.5-gd \
-    php8.5-curl \
-    php8.5-mongodb \
-    php8.5-imap \
-    php8.5-mysql \
-    php8.5-mbstring \
-    php8.5-xml \
-    php8.5-zip \
-    php8.5-bcmath \
-    php8.5-soap \
-    php8.5-intl \
-    php8.5-readline \
-    php8.5-ldap \
-    php8.5-msgpack \
-    php8.5-igbinary \
-    php8.5-redis \
-    php8.5-swoole \
-    php8.5-memcached \
-    php8.5-pcov \
-    php8.5-imagick \
-    php8.5-xdebug
+    php8.4-cli \
+    php8.4-fpm \
+    php8.4-pgsql \
+    php8.4-sqlite3 \
+    php8.4-gd \
+    php8.4-curl \
+    php8.4-mongodb \
+    php8.4-imap \
+    php8.4-mysql \
+    php8.4-mbstring \
+    php8.4-xml \
+    php8.4-zip \
+    php8.4-bcmath \
+    php8.4-soap \
+    php8.4-intl \
+    php8.4-readline \
+    php8.4-ldap \
+    php8.4-msgpack \
+    php8.4-igbinary \
+    php8.4-redis \
+    php8.4-swoole \
+    php8.4-memcached \
+    php8.4-pcov \
+    php8.4-imagick \
+    php8.4-xdebug
 
 sqlite3 --version
 mysql --version
