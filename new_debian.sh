@@ -27,7 +27,34 @@ sudo apt update
 
 # Install PHP.
 sudo apt install -y php8.5
-
+sudo apt-get install -y \
+    libgd3 \
+    php8.5-cli \
+    php8.5-dev \
+    php8.5-pgsql \
+    php8.5-sqlite3 \
+    php8.5-gd \
+    php8.5-curl \
+    php8.5-mongodb \
+    php8.5-imap \
+    php8.5-mysql \
+    php8.5-mbstring \
+    php8.5-xml \
+    php8.5-zip \
+    php8.5-bcmath \
+    php8.5-soap \
+    php8.5-intl \
+    php8.5-readline \
+    php8.5-ldap \
+    php8.5-msgpack \
+    php8.5-igbinary \
+    php8.5-redis \
+    php8.5-swoole \
+    php8.5-memcached \
+    php8.5-pcov \
+    php8.5-imagick \
+    php8.5-xdebug
+    
 php -v
 
 echo "======================================"
