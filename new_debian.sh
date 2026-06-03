@@ -26,50 +26,9 @@ EOF
 sudo apt update
 
 # Install PHP.
-#sudo apt install -y php8.4
+sudo apt install -y php8.5
 
-#php -v
-
-echo "======================================"
-echo " Install Server"
-echo "======================================"
-
-sudo apt update
-sudo apt install sqlite3 -y
-sudo apt install mariadb-server mariadb-client -y
-sudo apt install redis-server -y
-sudo apt install sendmail -y
-sudo apt-get install -y \
-    libgd3 \
-    php8.4-cli \
-    php8.4-dev \
-    php8.4-pgsql \
-    php8.4-sqlite3 \
-    php8.4-gd \
-    php8.4-curl \
-    php8.4-mongodb \
-    php8.4-imap \
-    php8.4-mysql \
-    php8.4-mbstring \
-    php8.4-xml \
-    php8.4-zip \
-    php8.4-bcmath \
-    php8.4-soap \
-    php8.4-intl \
-    php8.4-readline \
-    php8.4-ldap \
-    php8.4-msgpack \
-    php8.4-igbinary \
-    php8.4-redis \
-    php8.4-swoole \
-    php8.4-memcached \
-    php8.4-pcov \
-    php8.4-imagick \
-    php8.4-xdebug
-
-sqlite3 --version
-mysql --version
-redis-server --version
+php -v
 
 echo "======================================"
 echo " Install Composer"
@@ -85,7 +44,7 @@ sudo mv composer.phar /usr/local/bin/composer
 composer --version
 
 echo "======================================"
-echo " Install NVM"
+echo " Install Node"
 echo "======================================"
 
 # Download and install nvm:
@@ -102,6 +61,20 @@ node -v # Should print "v24.16.0".
 
 # Verify npm version:
 npm -v # Should print "11.13.0".
+
+echo "======================================"
+echo " Install Server"
+echo "======================================"
+
+sudo apt update
+sudo apt install sqlite3 -y
+sudo apt install mariadb-server mariadb-client -y
+sudo apt install redis-server -y
+sudo apt install sendmail -y
+
+sqlite3 --version
+mysql --version
+redis-server --version
 
 echo "======================================"
 echo " Installation Complete"
