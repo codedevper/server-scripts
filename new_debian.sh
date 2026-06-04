@@ -52,6 +52,7 @@ sudo apt-get install -y \
     php8.4-xml \
     php8.4-zip \
     php8.4-bcmath \
+    php8.4-bz2 \
     php8.4-soap \
     php8.4-intl \
     php8.4-readline \
