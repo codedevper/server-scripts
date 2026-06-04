@@ -41,6 +41,7 @@ sudo apt-get install -y \
     libgd3 \
     php8.5-cli \
     php8.5-dev \
+    php8.5-common \
     php8.5-pgsql \
     php8.5-sqlite3 \
     php8.5-gd \
