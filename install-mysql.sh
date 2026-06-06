@@ -10,8 +10,8 @@ sudo apt install -y mysql-server
 
 echo "==> Adding user to database..."
 sudo mysql
-CREATE DATABASE web;
-CREATE USER 'web'@'localhost' IDENTIFIED BY 'password';
-GRANT ALL PRIVILEGES ON web.* TO 'web'@'localhost';
+CREATE DATABASE server;
+CREATE USER 'server'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON server.* TO 'server'@'localhost';
 FLUSH PRIVILEGES;
 EXIT;
