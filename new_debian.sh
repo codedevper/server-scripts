@@ -7,6 +7,12 @@ echo "======================================"
 sudo apt update && sudo apt upgrade -y
 
 echo "======================================"
+echo " Install Dev Repository"
+echo "======================================"
+
+sudo apt install -y wget gnupg gosu curl ca-certificates zip unzip git supervisor sqlite3 libcap2-bin libpng-dev python3 dnsutils librsvg2-bin fswatch ffmpeg nano
+
+echo "======================================"
 echo " Install PHP Repository"
 echo "======================================"
 
@@ -124,6 +130,12 @@ chmod +x wp-cli.phar
 sudo mv wp-cli.phar /usr/local/bin/wp
 
 wp --info
+
+echo "======================================"
+echo " Install Linux Quota Management"
+echo "======================================"
+
+sudo apt install quota -y
 
 echo "======================================"
 echo " Installation Complete"
