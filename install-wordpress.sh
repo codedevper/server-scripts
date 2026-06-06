@@ -22,6 +22,15 @@ tar -xzf latest.tar.gz
 sudo mv wordpress /var/www/wordpress
 cd /var/www/wordpress
 
+sudo mysql
+DROP DATABASE IF EXISTS wordpress;
+CREATE DATABASE IF NOT EXISTS wordpress;
+DROP USER IF EXISTS 'wordpress'@'localhost;
+CREATE USER 'wordpress'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpress'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
+
 wp config create \
   --dbname=wordpress \
   --dbuser=wordpress \
