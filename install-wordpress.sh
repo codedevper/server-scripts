@@ -13,14 +13,6 @@ sudo mv wp-cli.phar /usr/local/bin/wp
 
 wp --info
 
-echo "==> Adding user to database..."
-sudo mysql
-CREATE DATABASE wordpress;
-CREATE USER 'wordpress'@'localhost' IDENTIFIED BY 'password';
-GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpress'@'localhost';
-FLUSH PRIVILEGES;
-EXIT;
-
 wp core download --path=/var/www/wordpress
 
 cd /var/www/wordpress
