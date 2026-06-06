@@ -13,8 +13,13 @@ sudo mv wp-cli.phar /usr/local/bin/wp
 
 wp --info
 
-wp core download --path=/var/www/wordpress
+sudo rm -rf /var/www/wordpress
 
+cd /tmp
+wget https://wordpress.org/latest.tar.gz
+tar -xzf latest.tar.gz
+
+sudo mv wordpress /var/www/wordpress
 cd /var/www/wordpress
 
 wp config create \
