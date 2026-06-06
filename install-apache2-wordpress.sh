@@ -11,18 +11,45 @@ sudo apt install -y apache2 php libapache2-mod-php mysql-server php-mysql
 echo "==> Adding user to database..."
 sudo mysql
 CREATE DATABASE wordpress;
-CREATE USER 'admin'@'localhost' IDENTIFIED BY 'password';
+CREATE USER 'wordpress'@'localhost' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON wordpress.* TO 'admin'@'localhost';
 FLUSH PRIVILEGES;
 EXIT;
 
-cd /tmp
-wget https://wordpress.org/latest.tar.gz
-tar -xzf latest.tar.gz
+curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 
-sudo mv wordpress /var/www/html/wordpress
-sudo chown -R www-data:www-data /var/www/html/wordpress
-sudo chmod -R 755 /var/www/html/wordpress
+chmod +x wp-cli.phar
+sudo mv wp-cli.phar /usr/local/bin/wp
+
+wp --info
+
+wp core download --path=/srv/www/wordpress
+
+cd /srv/www/wordpress
+
+wp config create \
+  --dbname=wordpress \
+  --dbuser=wordpress \
+  --dbpass=password \
+  --dbhost=localhost
+
+wp db create
+
+wp core install \
+  --url=localhost \
+  --title="Wordpress" \
+  --admin_user=admin \
+  --admin_password=password \
+  --admin_email=admin@email.com
+
+wp plugin install \
+woocommerce \
+custom-smtp \
+simple-jwt-login \
+--activate
+
+sudo chown -R www-data:www-data /srv/www/wordpress
+sudo chmod -R 755 /srv/www/wordpress
 
 sudo tee /etc/apache2/sites-available/wordpress.conf > /dev/null <<'EOF'
 <VirtualHost *:80>
