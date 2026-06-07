@@ -2,8 +2,8 @@
 
 set -e
 
-sudo rm -rf /srv/www/panel
-sudo userdel -r supervisor
+#sudo rm -rf /srv/www/panel
+#sudo userdel -r supervisor
 useradd -r -m -s /bin/bash supervisor
 su - supervisor
 
