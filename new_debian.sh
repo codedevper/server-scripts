@@ -15,15 +15,13 @@ echo "======================================"
 sudo apt install -y wget gnupg gosu curl ca-certificates zip unzip git supervisor sqlite3 libcap2-bin libpng-dev python3 dnsutils librsvg2-bin fswatch ffmpeg nano quota
 
 echo "======================================"
-echo " Install PHP Repository"
-echo "======================================"
-
-sudo apt update
-
-echo "======================================"
 echo " Install PHP"
 echo "======================================"
 
+# Update the package lists.
+sudo apt update
+
+# Install PHP.
 sudo apt install -y php
 
 php -v
@@ -86,25 +84,24 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
 \. "$HOME/.nvm/nvm.sh"
 
 # Download and install Node.js:
-nvm install 24
+nvm install 22
 
 # Verify the Node.js version:
-node -v # Should print "v24.16.0".
+node -v # Should print "v22.22.3".
 
 # Verify npm version:
-npm -v # Should print "11.13.0".
+npm -v # Should print "10.9.8".
 
 echo "======================================"
 echo " Install Server"
 echo "======================================"
 
 sudo apt update
-sudo apt install sqlite3 -y
+
 sudo apt install mariadb-server mariadb-client -y
 sudo apt install redis-server -y
 sudo apt install sendmail -y
 
-sqlite3 --version
 mysql --version
 redis-server --version
 
@@ -118,12 +115,6 @@ chmod +x wp-cli.phar
 sudo mv wp-cli.phar /usr/local/bin/wp
 
 wp --info
-
-echo "======================================"
-echo " Install Linux Quota Management"
-echo "======================================"
-
-sudo apt install quota -y
 
 echo "======================================"
 echo " Installation Complete"
