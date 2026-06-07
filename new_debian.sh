@@ -15,38 +15,6 @@ echo "======================================"
 sudo apt install -y wget gnupg gosu curl ca-certificates zip unzip git supervisor sqlite3 libcap2-bin libpng-dev python3 dnsutils librsvg2-bin fswatch ffmpeg nano quota
 
 echo "======================================"
-echo " Install Node"
-echo "======================================"
-
-# Download and install nvm:
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
-
-# in lieu of restarting the shell
-\. "$HOME/.nvm/nvm.sh"
-
-# Download and install Node.js:
-nvm install 24
-
-# Verify the Node.js version:
-node -v # Should print "v24.16.0".
-
-# Verify npm version:
-npm -v # Should print "11.13.0".
-
-echo "======================================"
-echo " Install Server"
-echo "======================================"
-
-sudo apt update
-
-sudo apt install mariadb-server mariadb-client -y
-sudo apt install redis-server -y
-sudo apt install sendmail -y
-
-mysql --version
-redis-server --version
-
-echo "======================================"
 echo " Install PHP"
 echo "======================================"
 
@@ -108,21 +76,43 @@ echo " Install Composer"
 echo "======================================"
 
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-EXPECTED_CHECKSUM="$(curl -fsSL https://composer.github.io/installer.sig)"
-ACTUAL_CHECKSUM="$(php -r "echo hash_file('sha384', 'composer-setup.php');")"
-
-    if [ "$EXPECTED_CHECKSUM" != "$ACTUAL_CHECKSUM" ]; then
-        echo "ERROR: Invalid installer checksum"
-        rm -f composer-setup.php
-        exit 1
-    fi
-
+php -r "if (hash_file('sha384', 'composer-setup.php') === 'c8b085408188070d5f52bcfe4ecfbee5f727afa458b2573b8eaaf77b3419b0bf2768dc67c86944da1544f06fa544fd47') { echo 'Installer verified'.PHP_EOL; } else { echo 'Installer corrupt'.PHP_EOL; unlink('composer-setup.php'); exit(1); }"
 php composer-setup.php
-rm -f composer-setup.php
-
-mv composer.phar /usr/local/bin/composer
+php -r "unlink('composer-setup.php');"
 
 composer --version
+
+echo "======================================"
+echo " Install Node"
+echo "======================================"
+
+# Download and install nvm:
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
+
+# in lieu of restarting the shell
+\. "$HOME/.nvm/nvm.sh"
+
+# Download and install Node.js:
+nvm install 24
+
+# Verify the Node.js version:
+node -v # Should print "v24.16.0".
+
+# Verify npm version:
+npm -v # Should print "11.13.0".
+
+echo "======================================"
+echo " Install Server"
+echo "======================================"
+
+sudo apt update
+
+sudo apt install mariadb-server mariadb-client -y
+sudo apt install redis-server -y
+sudo apt install sendmail -y
+
+mysql --version
+redis-server --version
 
 echo "======================================"
 echo " Install Wordpress CLI"
