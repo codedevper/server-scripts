@@ -13,16 +13,3 @@ cd /var/www/panel
 
 composer setup
 '
-
-echo "======================================"
-echo " Installation Complete"
-echo "======================================"
-echo ""
-echo "Please login and run:"
-echo ""
-echo "sudo mariadb-secure-installation"
-echo "sudo apt install phpmyadmin"
-echo ""
-echo "to use mysql without sudo."
-echo ""
-echo "cd /srv/panel && composer run dev"
