@@ -14,15 +14,18 @@ sudo mv wp-cli.phar /usr/local/bin/wp
 wp --info
 
 sudo rm -rf /srv/panel
-
-sudo useradd -m -s /bin/bash panel
+sudo userdel -r panel
+useradd -r -m -d /srv/panel -s /bin/bash panel
 
 git clone https://github.com/codedevper/master-panel.git /srv/panel
 
 sudo chown -R panel:panel /srv/panel
 
 cd /srv/panel
-sudo -u panel composer setup
+sudo -u panel bash -c '
+cd /srv/panel
+composer setup
+'
 
 echo "======================================"
 echo " Installation Complete"
