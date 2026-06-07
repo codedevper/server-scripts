@@ -13,6 +13,8 @@ sudo apt install -y \
   ca-certificates \
   openssh-server
 
+sudo passwd root
+
 sudo tee /etc/ssh/sshd_config.d/root.conf > /dev/null <<'EOF'
 PermitRootLogin yes
 PasswordAuthentication yes
