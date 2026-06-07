@@ -4,11 +4,9 @@ set -e
 
 rm -rf /var/www/panel
 
-if id "supervisor" >/dev/null 2>&1; then
-    userdel -r supervisor || true
+if ! id "supervisor" >/dev/null 2>&1; then
+    useradd -r -m -s /bin/bash supervisor
 fi
-
-useradd -r -m -s /bin/bash supervisor
 
 git clone https://github.com/codedevper/master-panel.git /var/www/panel
 
