@@ -15,6 +15,27 @@ echo "======================================"
 sudo apt install -y wget gnupg gosu curl ca-certificates zip unzip git supervisor sqlite3 libcap2-bin libpng-dev python3 dnsutils librsvg2-bin fswatch ffmpeg nano quota
 
 echo "======================================"
+echo " Install Node"
+echo "======================================"
+
+# Download and install nvm:
+curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
+apt install -y nodejs
+
+echo "======================================"
+echo " Install Server"
+echo "======================================"
+
+sudo apt update
+
+sudo apt install mariadb-server mariadb-client -y
+sudo apt install redis-server -y
+sudo apt install sendmail -y
+
+mysql --version
+redis-server --version
+
+echo "======================================"
 echo " Install PHP"
 echo "======================================"
 
@@ -63,38 +84,6 @@ php -r "unlink('composer-setup.php');"
 sudo mv composer.phar /usr/local/bin/composer
 
 composer --version
-
-echo "======================================"
-echo " Install Node"
-echo "======================================"
-
-# Download and install nvm:
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
-
-# in lieu of restarting the shell
-\. "$HOME/.nvm/nvm.sh"
-
-# Download and install Node.js:
-nvm install 22
-
-# Verify the Node.js version:
-node -v # Should print "v22.22.3".
-
-# Verify npm version:
-npm -v # Should print "10.9.8".
-
-echo "======================================"
-echo " Install Server"
-echo "======================================"
-
-sudo apt update
-
-sudo apt install mariadb-server mariadb-client -y
-sudo apt install redis-server -y
-sudo apt install sendmail -y
-
-mysql --version
-redis-server --version
 
 echo "======================================"
 echo " Install Wordpress CLI"
