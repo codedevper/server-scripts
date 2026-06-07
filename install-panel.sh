@@ -18,10 +18,10 @@ sudo -u supervisor bash -c '
 cd /srv/www/panel
 
 composer setup
+'
 
 sudo cp -a /srv/supervisor/conf.d/. /etc/supervisor/conf.d/
 
 sudo supervisorctl reread
 sudo supervisorctl update
 sudo supervisorctl status
-'
