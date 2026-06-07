@@ -3,8 +3,12 @@
 set -e
 
 sudo rm -rf /var/www/panel
-sudo userdel -r supervisor
-useradd -r -m -s /bin/bash supervisor
+
+if id "supervisor" >/dev/null 2>&1; then
+    sudo userdel -r supervisor || true
+fi
+
+sudo useradd -r -m -s /bin/bash supervisor
 
 git clone https://github.com/codedevper/master-panel.git /var/www/panel
 
