@@ -15,21 +15,33 @@ echo "======================================"
 sudo apt install -y wget gnupg gosu curl ca-certificates zip unzip git supervisor sqlite3 libcap2-bin libpng-dev python3 dnsutils librsvg2-bin fswatch ffmpeg nano quota
 
 echo "======================================"
+echo " Install Node"
+echo "======================================"
+
+curl -fsSL https://deb.nodesource.com/setup_24.x | bash -
+apt install -y nodejs
+
+echo "======================================"
+echo " Install Server"
+echo "======================================"
+
+sudo apt update
+
+sudo apt install mariadb-server mariadb-client -y
+sudo apt install redis-server -y
+sudo apt install sendmail -y
+
+mysql --version
+redis-server --version
+
+echo "======================================"
 echo " Install PHP"
 echo "======================================"
 
-# Add the packages.sury.org/php repository.
+# Add the ondrej/php repository.
 sudo apt update
-sudo apt install -y lsb-release ca-certificates curl
-sudo curl -sSLo /tmp/debsuryorg-archive-keyring.deb https://packages.sury.org/debsuryorg-archive-keyring.deb
-sudo dpkg -i /tmp/debsuryorg-archive-keyring.deb
-sudo tee /etc/apt/sources.list.d/php.sources <<EOF
-Types: deb
-URIs: https://packages.sury.org/php/
-Suites: $(lsb_release -sc)
-Components: main
-Signed-By: /usr/share/keyrings/debsuryorg-archive-keyring.gpg
-EOF
+sudo apt install -y software-properties-common
+sudo LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php -y
 sudo apt update
 
 # Install PHP.
@@ -83,26 +95,6 @@ php -r "unlink('composer-setup.php');"
 sudo mv composer.phar /usr/local/bin/composer
 
 composer --version
-
-echo "======================================"
-echo " Install Node"
-echo "======================================"
-
-curl -fsSL https://deb.nodesource.com/setup_24.x | bash -
-apt install -y nodejs
-
-echo "======================================"
-echo " Install Server"
-echo "======================================"
-
-sudo apt update
-
-sudo apt install mariadb-server mariadb-client -y
-sudo apt install redis-server -y
-sudo apt install sendmail -y
-
-mysql --version
-redis-server --version
 
 echo "======================================"
 echo " Install Wordpress CLI"
