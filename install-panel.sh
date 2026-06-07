@@ -20,7 +20,7 @@ cd /srv/www/panel
 composer setup
 '
 
-#sudo cp -a /srv/supervisor/conf.d/. /etc/supervisor/conf.d/
+#sudo cp -a /srv/www/panel/supervisor/conf.d/. /etc/supervisor/conf.d/
 
 sudo supervisorctl reread
 sudo supervisorctl update
