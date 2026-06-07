@@ -2,6 +2,8 @@
 
 set -e
 
+sudo rm -rf /var/www/panel
+sudo userdel -r supervisor
 useradd -r -m -s /bin/bash supervisor
 
 git clone https://github.com/codedevper/master-panel.git /var/www/panel
