@@ -1,7 +1,7 @@
-apt update
-apt upgrade -y
+sudo apt update
+sudo apt upgrade -y
 
-apt install -y \
+sudo apt install -y \
   curl \
   git \
   wget \
