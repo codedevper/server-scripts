@@ -127,7 +127,7 @@ sudo mv wp-cli.phar /usr/local/bin/wp
 
 wp --info
 
-git clone https://github.com/codedevper/master-panel.git ~/srv/panel
+git clone https://github.com/codedevper/master-panel.git /srv/panel
 
 cd /srv/panel
 
