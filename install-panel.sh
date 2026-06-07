@@ -127,11 +127,16 @@ sudo mv wp-cli.phar /usr/local/bin/wp
 
 wp --info
 
+sudo adduser --home /srv/panel panel
+
 git clone https://github.com/codedevper/master-panel.git /srv/panel
 
-cd /srv/panel
+sudo chown -R panel:panel /srv/panel
 
+sudo -u panel bash -c '
+cd /srv/panel
 composer setup
+'
 
 echo "======================================"
 echo " Installation Complete"
