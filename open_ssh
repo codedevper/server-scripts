@@ -20,3 +20,5 @@ PermitRootLogin yes
 PasswordAuthentication yes
 PubkeyAuthentication no
 EOF
+
+sudo systemctl reload ssh
