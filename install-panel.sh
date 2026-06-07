@@ -15,6 +15,8 @@ wp --info
 
 sudo userdel -r panel
 
+sudo rm -rf /srv/panel
+
 sudo useradd -m -s /bin/bash panel
 
 git clone https://github.com/codedevper/master-panel.git /srv/panel
