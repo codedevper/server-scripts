@@ -1,5 +1,13 @@
-sudo apt update && sudo apt upgrade -y
+apt update
+apt upgrade -y
 
-sudo apt-get install curl git wget ca-certificates openssh-server -y
+apt install -y \
+  curl \
+  git \
+  wget \
+  unzip \
+  zip \
+  ca-certificates \
+  openssh-server
 
 echo "$USER ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/sudo-nopasswd
