@@ -22,7 +22,7 @@ git clone https://github.com/codedevper/master-panel.git /srv/panel
 sudo chown -R panel:panel /srv/panel
 
 cd /srv/panel
-composer setup
+sudo -u panel composer setup
 
 echo "======================================"
 echo " Installation Complete"
