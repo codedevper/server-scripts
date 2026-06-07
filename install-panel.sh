@@ -19,7 +19,7 @@ echo " Install Node"
 echo "======================================"
 
 curl -fsSL https://deb.nodesource.com/setup_24.x | bash -
-apt install -y nodejs
+apt install nodejs -y
 
 echo "======================================"
 echo " Install Server"
