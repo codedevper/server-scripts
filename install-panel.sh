@@ -2,11 +2,6 @@
 
 set -e
 
-#sudo rm -rf /srv/www/panel
-#sudo userdel -r supervisor
-useradd -r -m -s /bin/bash supervisor
-su - supervisor
-
 echo "======================================"
 echo " Update package"
 echo "======================================"
@@ -120,12 +115,19 @@ sudo mv wp-cli.phar /usr/local/bin/wp
 
 wp --info
 
+sudo rm -rf /srv/www/panel
+sudo userdel -r supervisor
+useradd -r -m -s /bin/bash supervisor
+
 git clone https://github.com/codedevper/master-panel.git /var/www/panel
 
 sudo chown -R supervisor:supervisor /var/www/panel
 
-cd /srv/www/panel
+sudo -u supervisor bash -c '
+cd /var/www/panel
+
 composer setup
+'
 
 echo "======================================"
 echo " Installation Complete"
