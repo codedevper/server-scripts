@@ -80,6 +80,8 @@ php -r "if (hash_file('sha384', 'composer-setup.php') === 'c8b085408188070d5f52b
 php composer-setup.php
 php -r "unlink('composer-setup.php');"
 
+sudo mv composer.phar /usr/local/bin/composer
+
 composer --version
 
 echo "======================================"
