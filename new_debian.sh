@@ -12,69 +12,55 @@ echo "======================================"
 echo " Install Dev Repository"
 echo "======================================"
 
-sudo apt install -y wget gnupg gosu curl ca-certificates zip unzip git supervisor sqlite3 libcap2-bin libpng-dev python3 dnsutils librsvg2-bin fswatch ffmpeg nano
+sudo apt install -y wget gnupg gosu curl ca-certificates zip unzip git supervisor sqlite3 libcap2-bin libpng-dev python3 dnsutils librsvg2-bin fswatch ffmpeg nano quota
 
 echo "======================================"
 echo " Install PHP Repository"
 echo "======================================"
 
-# Add the packages.sury.org/php repository.
-sudo apt update
-sudo apt install -y lsb-release ca-certificates curl
-sudo curl -sSLo /tmp/debsuryorg-archive-keyring.deb https://packages.sury.org/debsuryorg-archive-keyring.deb
-sudo dpkg -i /tmp/debsuryorg-archive-keyring.deb
-sudo tee /etc/apt/sources.list.d/php.sources <<EOF
-Types: deb
-URIs: https://packages.sury.org/php/
-Suites: $(lsb_release -sc)
-Components: main
-Signed-By: /usr/share/keyrings/debsuryorg-archive-keyring.gpg
-EOF
-
 sudo apt update
 
 echo "======================================"
-echo " Install PHP 8.5"
+echo " Install PHP"
 echo "======================================"
 
-sudo apt install -y php8.5
+sudo apt install -y php
 
 php -v
 
 echo "======================================"
-echo " Install multiple PHP 8.5 extensions"
+echo " Install multiple PHP extensions"
 echo "======================================"
 
 sudo apt-get install -y \
     libgd3 \
-    php8.5-cli \
-    php8.5-dev \
-    php8.5-common \
-    php8.5-pgsql \
-    php8.5-sqlite3 \
-    php8.5-gd \
-    php8.5-curl \
-    php8.5-mongodb \
-    php8.5-imap \
-    php8.5-mysql \
-    php8.5-mbstring \
-    php8.5-mcrypt \
-    php8.5-xml \
-    php8.5-zip \
-    php8.5-bcmath \
-    php8.5-bz2 \
-    php8.5-soap \
-    php8.5-intl \
-    php8.5-readline \
-    php8.5-ldap \
-    php8.5-msgpack \
-    php8.5-igbinary \
-    php8.5-redis \
-    php8.5-swoole \
-    php8.5-memcached \
-    php8.5-pcov \
-    php8.5-imagick \
-    php8.5-xdebug
+    php-cli \
+    php-dev \
+    php-pgsql \
+    php-sqlite3 \
+    php-gd \
+    php-curl \
+    php-mongodb \
+    php-imap \
+    php-mysql \
+    php-mbstring \
+    php-mcrypt \
+    php-xml \
+    php-zip \
+    php-bcmath \
+    php-bz2 \
+    php-soap \
+    php-intl \
+    php-readline \
+    php-ldap \
+    php-msgpack \
+    php-igbinary \
+    php-redis \
+    php-swoole \
+    php-memcached \
+    php-pcov \
+    php-imagick \
+    php-xdebug
 
 echo "======================================"
 echo " Install Composer"
