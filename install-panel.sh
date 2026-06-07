@@ -13,17 +13,16 @@ sudo mv wp-cli.phar /usr/local/bin/wp
 
 wp --info
 
-sudo rm -rf /srv/panel
-sudo userdel -r panel
-useradd -r -m -d /srv/panel -s /bin/bash panel
+sudo rm -rf /srv/www/panel
+sudo userdel -r server
+useradd -r -m -d /srv -s /bin/bash server
 
-git clone https://github.com/codedevper/master-panel.git /srv/panel
+git clone https://github.com/codedevper/master-panel.git /srv/www/panel
 
-sudo chown -R panel:panel /srv/panel
+sudo chown -R server:server /srv/www/panel
 
-cd /srv/panel
-sudo -u panel bash -c '
-cd /srv/panel
+sudo -u server bash -c '
+cd /srv/www/panel
 composer setup
 '
 
