@@ -4,17 +4,17 @@ set -e
 
 rm -rf /srv/www/panel
 
-if id "supervisor" >/dev/null 2>&1; then
-    userdel -r supervisor
+if id "server" >/dev/null 2>&1; then
+    userdel -r server
 fi
 
-useradd -r -m -s /bin/bash supervisor
+useradd -r -m -s /bin/bash server
 
 git clone https://github.com/codedevper/master-panel.git /srv/www/panel
 
-sudo chown -R supervisor:supervisor /srv/www/panel
+sudo chown -R server:server /srv/www/panel
 
-sudo -u supervisor bash -c '
+sudo -u server bash -c '
 cd /srv/www/panel
 
 composer setup
