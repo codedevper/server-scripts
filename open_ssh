@@ -21,4 +21,4 @@ PasswordAuthentication yes
 PubkeyAuthentication no
 EOF
 
-sudo systemctl reload ssh
+sudo systemctl restart ssh
