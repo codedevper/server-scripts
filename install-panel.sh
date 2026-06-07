@@ -13,6 +13,8 @@ sudo mv wp-cli.phar /usr/local/bin/wp
 
 wp --info
 
+sudo userdel -r panel
+
 useradd -r -m -d /srv/panel -s /bin/bash panel
 
 git clone https://github.com/codedevper/master-panel.git /srv/panel
