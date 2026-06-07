@@ -88,7 +88,8 @@ echo "======================================"
 echo " Install Node"
 echo "======================================"
 
-sudo apt install -y nodejs
+curl -fsSL https://deb.nodesource.com/setup_24.x | bash -
+apt install -y nodejs
 
 echo "======================================"
 echo " Install Server"
