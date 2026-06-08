@@ -19,7 +19,7 @@ echo " Install Node"
 echo "======================================"
 
 curl -fsSL https://deb.nodesource.com/setup_24.x | bash -
-apt install -y nodejs
+sudo apt install -y nodejs
 
 # Download and install nvm:
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.5/install.sh | bash
