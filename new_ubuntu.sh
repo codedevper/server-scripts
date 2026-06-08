@@ -56,34 +56,32 @@ echo " Install multiple PHP extensions"
 echo "======================================"
 
 sudo apt-get install -y \
-    libgd3 \
-    php8.4-cli \
-    php8.4-dev \
-    php8.4-pgsql \
-    php8.4-sqlite3 \
-    php8.4-gd \
-    php8.4-curl \
-    php8.4-mongodb \
-    php8.4-imap \
-    php8.4-mysql \
-    php8.4-mbstring \
-    php8.4-mcrypt \
-    php8.4-xml \
-    php8.4-zip \
-    php8.4-bcmath \
-    php8.4-bz2 \
-    php8.4-soap \
-    php8.4-intl \
-    php8.4-readline \
-    php8.4-ldap \
-    php8.4-msgpack \
-    php8.4-igbinary \
-    php8.4-redis \
-    php8.4-swoole \
-    php8.4-memcached \
-    php8.4-pcov \
-    php8.4-imagick \
-    php8.4-xdebug
+libgd3 \
+php8.4-cli \
+php8.4-dev \
+php8.4-pgsql \
+php8.4-sqlite3 \
+php8.4-gd \
+php8.4-curl \
+php8.4-mongodb \
+php8.4-imap \
+php8.4-mysql \
+php8.4-mbstring \
+php8.4-xml \
+php8.4-zip \
+php8.4-bcmath \
+php8.4-soap \
+php8.4-intl \
+php8.4-readline \
+php8.4-ldap \
+php8.4-msgpack \
+php8.4-igbinary \
+php8.4-redis \
+php8.4-swoole \
+php8.4-memcached \
+php8.4-pcov \
+php8.4-imagick \
+php8.4-xdebug
 
 echo "======================================"
 echo " Install Composer"
