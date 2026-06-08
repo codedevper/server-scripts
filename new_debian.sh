@@ -115,19 +115,6 @@ sudo mv wp-cli.phar /usr/local/bin/wp
 
 wp --info
 
-# Enable rewrite module
-sudo a2enmod rewrite
-
-grep -q "^Listen 9999$" /etc/apache2/ports.conf || \
-sudo sed -i '/^Listen 80$/a Listen 9999' /etc/apache2/ports.conf
-sudo sed -i '/80/d' /etc/apache2/ports.conf
-
-# Validate Apache config
-sudo apache2ctl configtest
-
-# Reload Apache
-sudo systemctl restart apache2
-
 echo "======================================"
 echo " Installation Complete"
 echo "======================================"
