@@ -18,6 +18,9 @@ echo "======================================"
 echo " Install Node"
 echo "======================================"
 
+curl -fsSL https://deb.nodesource.com/setup_24.x | bash -
+apt install -y nodejs
+
 # Download and install nvm:
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.5/install.sh | bash
 
@@ -32,19 +35,6 @@ node -v # Should print "v22.22.3".
 
 # Verify npm version:
 npm -v # Should print "10.9.8".
-
-echo "======================================"
-echo " Install Server"
-echo "======================================"
-
-sudo apt update
-
-sudo apt install mariadb-server mariadb-client -y
-sudo apt install redis-server -y
-sudo apt install sendmail -y
-
-mysql --version
-redis-server --version
 
 echo "======================================"
 echo " Install PHP"
@@ -107,6 +97,19 @@ php -r "unlink('composer-setup.php');"
 sudo mv composer.phar /usr/local/bin/composer
 
 composer --version
+
+echo "======================================"
+echo " Install Server"
+echo "======================================"
+
+sudo apt update
+
+sudo apt install mariadb-server mariadb-client -y
+sudo apt install redis-server -y
+sudo apt install sendmail -y
+
+mysql --version
+redis-server --version
 
 echo "======================================"
 echo " Install Wordpress CLI"
