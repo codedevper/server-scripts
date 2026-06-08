@@ -23,4 +23,4 @@ EOF
 
 sudo systemctl restart ssh
 
-echo "server ALL=(root) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/sudo-nopasswd
+echo "server ALL=(root) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/server-nopasswd
