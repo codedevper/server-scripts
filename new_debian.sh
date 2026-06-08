@@ -88,8 +88,20 @@ echo "======================================"
 echo " Install Node"
 echo "======================================"
 
-curl -fsSL https://deb.nodesource.com/setup_24.x | bash -
-apt install -y nodejs
+# Download and install nvm:
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.5/install.sh | bash
+
+# in lieu of restarting the shell
+\. "$HOME/.nvm/nvm.sh"
+
+# Download and install Node.js:
+nvm install 24
+
+# Verify the Node.js version:
+node -v # Should print "v24.16.0".
+
+# Verify npm version:
+npm -v # Should print "11.13.0".
 
 echo "======================================"
 echo " Install Server"
