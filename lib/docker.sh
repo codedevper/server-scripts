@@ -26,5 +26,7 @@ Signed-By: /etc/apt/keyrings/docker.asc
 EOF
 
 sudo apt update
+
+docker -v
   
 #sudo usermod -aG docker $USER
