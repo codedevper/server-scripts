@@ -58,7 +58,7 @@ php -r "unlink('composer-setup.php');"
 
 sudo mv composer.phar /usr/local/bin/composer
 
-curl -fsSL https://deb.nodesource.com/setup_24.x | bash -
+sudo bash -c "$(curl -fsSL https://deb.nodesource.com/setup_22.x)"
 sudo apt-get install -y nodejs
 
 node -v
