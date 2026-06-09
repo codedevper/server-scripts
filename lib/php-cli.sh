@@ -9,7 +9,7 @@ echo "======================================"
 sudo apt update && sudo apt upgrade -y
 
 echo "======================================"
-echo " Install PHP"
+echo " Install PHP CLI"
 echo "======================================"
 
 # Add the ondrej/php repository.
@@ -19,9 +19,9 @@ sudo LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php -y
 sudo apt update
 
 # Install PHP.
-#sudo apt install -y php8.4
+sudo apt install -y php8.4-cli
 
-#php -v
+php -v
 
 echo "======================================"
 echo " Install multiple PHP extensions"
@@ -29,7 +29,6 @@ echo "======================================"
 
 sudo apt-get install -y \
 libgd3 \
-php8.4-cli \
 php8.4-dev \
 php8.4-pgsql \
 php8.4-sqlite3 \
