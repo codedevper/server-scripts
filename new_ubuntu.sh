@@ -58,17 +58,7 @@ php -r "unlink('composer-setup.php');"
 
 sudo mv composer.phar /usr/local/bin/composer
 
-# Download and install nvm:
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.5/install.sh | bash
+curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
+sudo apt install -y nodejs
 
-# in lieu of restarting the shell
-\. "$HOME/.nvm/nvm.sh"
-
-# Download and install Node.js:
-nvm install 22
-
-# Verify the Node.js version:
-node -v # Should print "v22.22.3".
-
-# Verify npm version:
-npm -v # Should print "10.9.8".
+node -v
