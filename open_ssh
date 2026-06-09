@@ -2,25 +2,25 @@
 
 set -e
 
-sudo apt-get update && sudo apt-get upgrade -y
+apt-get update && apt-get upgrade -y
 
-sudo apt-get install -y \
+apt-get install -y \
 curl \
 git \
 unzip \
 ca-certificates \
 openssh-server
 
-sudo passwd root
+passwd root
 
-sudo tee /etc/ssh/sshd_config.d/root.conf > /dev/null <<'EOF'
+tee /etc/ssh/sshd_config.d/root.conf > /dev/null <<'EOF'
 PermitRootLogin yes
 PasswordAuthentication yes
 PubkeyAuthentication no
 EOF
 
-sudo systemctl restart ssh
+systemctl restart ssh
 
-sudo useradd -m -s /bin/bash server
+useradd -m -s /bin/bash server
 
 echo "server ALL=(root) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/server-nopasswd
