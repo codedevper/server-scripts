@@ -10,4 +10,4 @@ sudo apt update && sudo apt upgrade -y
 
 sudo apt install mariadb-server mariadb-client -y
 
-mysql -v
+mysql --version
