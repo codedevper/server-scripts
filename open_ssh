@@ -22,6 +22,6 @@ EOF
 
 systemctl restart ssh
 
-useradd -m -s /bin/bash dev
+useradd -m -s /bin/bash server
 
-echo "dev ALL=(root) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/dev-nopasswd
+echo "server ALL=(root) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/server-nopasswd
