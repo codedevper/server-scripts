@@ -19,7 +19,7 @@ sudo LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php -y
 sudo apt update
 
 # Install PHP.
-sudo apt install -y php8.4-cli
+sudo apt install -y php8.4
 
 php -v
 
@@ -29,6 +29,7 @@ echo "======================================"
 
 sudo apt-get install -y \
 libgd3 \
+php8.4-cli \
 php8.4-dev \
 php8.4-pgsql \
 php8.4-sqlite3 \
