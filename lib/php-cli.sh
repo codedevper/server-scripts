@@ -1,3 +1,12 @@
+#!/usr/bin/env bash
+
+set -e
+
+echo "======================================"
+echo " Update package"
+echo "======================================"
+
+sudo apt update && sudo apt upgrade -y
 
 echo "======================================"
 echo " Install PHP"
