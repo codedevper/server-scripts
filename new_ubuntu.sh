@@ -12,7 +12,7 @@ echo "======================================"
 echo " Install Dev Repository"
 echo "======================================"
 
-sudo apt-get install -y gnupg gosu curl ca-certificates zip unzip git sqlite3 libcap2-bin libpng-dev python3 dnsutils librsvg2-bin fswatch ffmpeg nano
+sudo apt-get install -y curl ca-certificates zip unzip git sqlite3 libcap2-bin libpng-dev python3 dnsutils librsvg2-bin fswatch ffmpeg nano
 
 # Add the ondrej/php repository.
 sudo apt-get update
