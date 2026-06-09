@@ -6,7 +6,7 @@ echo "======================================"
 echo " Update package"
 echo "======================================"
 
-sudo apt update && sudo apt upgrade -y
+sudo apt-get update && sudo apt-get upgrade -y
 
 echo "======================================"
 echo " Install Dev Repository"
@@ -15,13 +15,13 @@ echo "======================================"
 sudo apt-get install -y gnupg gosu curl ca-certificates zip unzip git supervisor sqlite3 libcap2-bin libpng-dev python3 dnsutils librsvg2-bin fswatch ffmpeg nano quota
 
 # Add the ondrej/php repository.
-sudo apt update
-sudo apt install -y software-properties-common
+sudo apt-get update
+sudo apt-get install -y software-properties-common
 sudo LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php -y
-sudo apt update
+sudo apt-get update
 
 # Install PHP.
-sudo apt install -y php8.4
+sudo apt-get install -y php8.4
 
 sudo apt-get install -y \
 libgd3 \
@@ -59,6 +59,6 @@ php -r "unlink('composer-setup.php');"
 sudo mv composer.phar /usr/local/bin/composer
 
 curl -fsSL https://deb.nodesource.com/setup_24.x | bash -
-sudo apt install -y nodejs
+sudo apt-get install -y nodejs
 
 node -v
