@@ -10,9 +10,9 @@ sudo LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php -y
 sudo apt update
 
 # Install PHP.
-sudo apt install -y php8.4
+#sudo apt install -y php8.4
 
-php -v
+#php -v
 
 echo "======================================"
 echo " Install multiple PHP extensions"
