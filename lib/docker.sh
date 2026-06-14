@@ -29,4 +29,4 @@ sudo apt update
 
 docker -v
   
-#sudo usermod -aG docker $USER
+sudo usermod -aG docker $USER
