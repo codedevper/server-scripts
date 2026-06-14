@@ -61,4 +61,6 @@ sudo mv composer.phar /usr/local/bin/composer
 sudo bash -c "$(curl -fsSL https://deb.nodesource.com/setup_22.x)"
 sudo apt-get install -y nodejs
 
-node -v
+which php
+which composer
+which node
