@@ -32,7 +32,8 @@ Signed-By: /etc/apt/keyrings/docker.asc
 EOF
 
 sudo apt update
-
-docker -v
-  
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 sudo usermod -aG docker $USER
+
+docker --version
+docker compose version
